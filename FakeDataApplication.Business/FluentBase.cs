@@ -18,6 +18,7 @@ namespace FakeDataApplication.Business
             using (SqlConnection connection = new SqlConnection(conStr))
             {
                 connection.Open();
+                //selam
                 T result = connection.Query<T>(command).SingleOrDefault();
                 connection.Close();
                 return result;
