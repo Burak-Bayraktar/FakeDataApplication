@@ -10,7 +10,7 @@ namespace FakeDataApplication.Business
 {
     public class FluentBase
     {
-        static string conStr = @"Server=localhost\SQLEXPRESS;Database=FakeData;Trusted_Connection=True;";
+        static string conStr = "Server=tcp:fakedataapp.database.windows.net,1433;Initial Catalog=FakeData;Persist Security Info=False;User ID=aleynardvnlr;Password=3798bba-;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
         public static T GetData<T>(int id)
         {

@@ -1,6 +1,7 @@
 ﻿using FakeDataApplication.Business;
 using FakeDataApplication.Entity;
 using System;
+using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -20,6 +21,11 @@ namespace FakeDataApplication
                 .FluentDepartment()
                 .FluentUniversity()
                 .CreateAsJSON();
+
+            string fileName = @"D:\Bitirme-Çalışması\UYGULAMA ÖRNEK JSON DOSYALARI\ornek2.json";
+            File.WriteAllText(fileName, s);
+
+
 
             Console.WriteLine(s);
         }
