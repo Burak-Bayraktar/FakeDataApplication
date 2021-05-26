@@ -16,3 +16,11 @@ C:\Users\burak\Desktop\Bitirme-Calismasi\2\FakeDataApplication\FakeDataApplicati
 C:\Users\burak\Desktop\Bitirme-Calismasi\2\FakeDataApplication\FakeDataApplication.Entity\obj\Debug\netcoreapp3.1\FakeDataApplication.Entity.csproj.CoreCompileInputs.cache
 C:\Users\burak\Desktop\Bitirme-Calismasi\2\FakeDataApplication\FakeDataApplication.Entity\obj\Debug\netcoreapp3.1\FakeDataApplication.Entity.dll
 C:\Users\burak\Desktop\Bitirme-Calismasi\2\FakeDataApplication\FakeDataApplication.Entity\obj\Debug\netcoreapp3.1\FakeDataApplication.Entity.pdb
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Entity\bin\Debug\netcoreapp3.1\FakeDataApplication.Entity.deps.json
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Entity\bin\Debug\netcoreapp3.1\FakeDataApplication.Entity.dll
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Entity\bin\Debug\netcoreapp3.1\FakeDataApplication.Entity.pdb
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Entity\obj\Debug\netcoreapp3.1\FakeDataApplication.Entity.csprojAssemblyReference.cache
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Entity\obj\Debug\netcoreapp3.1\FakeDataApplication.Entity.AssemblyInfoInputs.cache
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Entity\obj\Debug\netcoreapp3.1\FakeDataApplication.Entity.AssemblyInfo.cs
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Entity\obj\Debug\netcoreapp3.1\FakeDataApplication.Entity.dll
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Entity\obj\Debug\netcoreapp3.1\FakeDataApplication.Entity.pdb

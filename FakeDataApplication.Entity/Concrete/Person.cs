@@ -10,7 +10,7 @@ namespace FakeDataApplication.Entity
         public string Name { get; set; }
         public string Surname { get; set; }
         public string EMail { get; set; }
-        public string TelephoneNumber { get; set; }
+        public long TelephoneNumber { get; set; }
         public string Province { get; set; }
         public string Neighborhood { get; set; }
         public string Address { get; set; }
@@ -18,5 +18,6 @@ namespace FakeDataApplication.Entity
         public string Department { get; set; }
         public int? Salary { get; set; }
         public string[] Hobbies { get; set; }
+        public string BirthPlace { get; set; }
     }
 }

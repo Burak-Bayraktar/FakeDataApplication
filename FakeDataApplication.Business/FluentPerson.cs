@@ -62,8 +62,36 @@ namespace FakeDataApplication.Entity
             person.Surname = capitalizedFirstLetter;
             return this;
         }
+        public FluentPerson FluentTelephoneNumber()
+        {
+            int totalData = GetDataLength("TelephoneNumber");
+            id = randomNumber.Next(1, totalData);
+            var result = GetData<TelephoneNumber>(id);
+            person.TelephoneNumber = result.telephone_number;
+            return this;
+        }
 
-        public FluentPerson FluentEMail()
+        public FluentPerson FluentIdentityNumber()
+        {
+            int totalData = GetDataLength("IdentityNumber");
+            id = randomNumber.Next(1, totalData);
+            var result = GetData<IdentityNumber>(id);
+            string removedWhiteSpaces = RemoveFromWhiteSpaces(result.identitynumber);
+            var capitalizedFirstLetter = CapitalizeFirstLetterOfString(removedWhiteSpaces);
+            person.Id = capitalizedFirstLetter;
+            return this;
+        }
+        public FluentPerson FluentProvince()
+        {
+            int totalData = GetDataLength("Province");
+            id = randomNumber.Next(1, totalData);
+            var result = GetData<Province>(id);
+            var removedWhiteSpaces = RemoveFromWhiteSpaces(result.province);
+            var capitalizedFirstLetter = CapitalizeFirstLetterOfString(removedWhiteSpaces);
+            person.BirthPlace = capitalizedFirstLetter;
+            return this;
+        }
+            public FluentPerson FluentEMail()
         {
             string[] emailDomains = new string[] { "@gmail.com", "@hotmail.com", "@yahoo.com", "@yandex.com", "@icloud.com", "@outlook.com"};
             var num = randomNumber.Next(1, emailDomains.Length);
@@ -139,4 +167,4 @@ namespace FakeDataApplication.Entity
             return JsonSerializer.Serialize(person, options);
         }
     }
-}
+    }

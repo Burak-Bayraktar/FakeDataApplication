@@ -18,12 +18,14 @@ namespace FakeDataApplication
                 .FluentSurname()
                 .FluentEMail()
                 .FluentAddress()
+                .FluentIdentityNumber()
+                .FluentTelephoneNumber()
                 .FluentDepartment()
                 .FluentUniversity()
                 .CreateAsJSON();
 
-            string fileName = @"D:\Bitirme-Çalışması\UYGULAMA ÖRNEK JSON DOSYALARI\ornek2.json";
-            File.WriteAllText(fileName, s);
+            //string fileName = @"D:\Bitirme-Çalışması\UYGULAMA ÖRNEK JSON DOSYALARI\ornek2.json";
+            //File.WriteAllText(fileName, s);
 
 
 

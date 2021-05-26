@@ -10,3 +10,14 @@ C:\Users\burak\Desktop\Bitirme-Calismasi\2\FakeDataApplication\FakeDataApplicati
 C:\Users\burak\Desktop\Bitirme-Calismasi\2\FakeDataApplication\FakeDataApplication.Business\obj\Debug\netcoreapp3.1\FakeDataApplication.Business.csproj.CopyComplete
 C:\Users\burak\Desktop\Bitirme-Calismasi\2\FakeDataApplication\FakeDataApplication.Business\obj\Debug\netcoreapp3.1\FakeDataApplication.Business.dll
 C:\Users\burak\Desktop\Bitirme-Calismasi\2\FakeDataApplication\FakeDataApplication.Business\obj\Debug\netcoreapp3.1\FakeDataApplication.Business.pdb
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Business\obj\Debug\netcoreapp3.1\FakeDataApplication.Business.csprojAssemblyReference.cache
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Business\obj\Debug\netcoreapp3.1\FakeDataApplication.Business.AssemblyInfoInputs.cache
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Business\obj\Debug\netcoreapp3.1\FakeDataApplication.Business.AssemblyInfo.cs
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Business\obj\Debug\netcoreapp3.1\FakeDataApplication.Business.dll
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Business\obj\Debug\netcoreapp3.1\FakeDataApplication.Business.pdb
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Business\bin\Debug\netcoreapp3.1\FakeDataApplication.Business.deps.json
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Business\bin\Debug\netcoreapp3.1\FakeDataApplication.Business.dll
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Business\bin\Debug\netcoreapp3.1\FakeDataApplication.Business.pdb
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Business\bin\Debug\netcoreapp3.1\FakeDataApplication.Entity.dll
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Business\bin\Debug\netcoreapp3.1\FakeDataApplication.Entity.pdb
+E:\Bitirme-Projesi\FakeDataApplication\FakeDataApplication.Business\obj\Debug\netcoreapp3.1\FakeDataApplication.Business.csproj.CopyComplete
