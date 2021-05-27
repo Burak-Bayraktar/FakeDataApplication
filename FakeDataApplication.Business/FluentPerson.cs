@@ -76,12 +76,12 @@ namespace FakeDataApplication.Entity
             int totalData = GetDataLength("IdentityNumber");
             id = randomNumber.Next(1, totalData);
             var result = GetData<IdentityNumber>(id);
-            string removedWhiteSpaces = RemoveFromWhiteSpaces(result.identitynumber);
+            string removedWhiteSpaces = RemoveFromWhiteSpaces(result.tc);
             var capitalizedFirstLetter = CapitalizeFirstLetterOfString(removedWhiteSpaces);
             person.Id = capitalizedFirstLetter;
             return this;
         }
-        public FluentPerson FluentProvince()
+        public FluentPerson FluentBirthPlace()
         {
             int totalData = GetDataLength("Province");
             id = randomNumber.Next(1, totalData);

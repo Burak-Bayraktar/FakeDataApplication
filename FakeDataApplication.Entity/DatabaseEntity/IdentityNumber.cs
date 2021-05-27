@@ -7,7 +7,6 @@ namespace FakeDataApplication.Entity
     public class IdentityNumber : IEntity
     {
         public int id { get; set; }
-        public long tc { get; set; }
-        public string identitynumber { get; set; }
+        public string tc { get; set; }
     }
 }

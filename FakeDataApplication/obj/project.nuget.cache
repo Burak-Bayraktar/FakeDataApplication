@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TsBBiqNzA/k9bf7L5S2OX6CmHY2c2k8RVq8Nw3t0vbnOlSenCOV04YC47lg3FUSWlUU1hpfne3upefFEKyuTjg==",
+  "dgSpecHash": "YQRQd4GlL/ZiVd8UxXOwfW9kLtU8F56dBQ+550FeUF6qqnHuIgkmvbIdWRHKDAhjoKwmwItmf1HueNMV0CcvWA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\burak\\Desktop\\Bitirme-Calismasi\\2\\FakeDataApplication\\FakeDataApplication\\FakeDataApplication.csproj",
+  "projectFilePath": "C:\\Users\\burak\\Desktop\\Bitirme\\FakeDataApplication\\FakeDataApplication\\FakeDataApplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\burak\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\burak\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

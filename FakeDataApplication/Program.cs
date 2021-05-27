@@ -14,11 +14,12 @@ namespace FakeDataApplication
             FluentPerson person = new FluentPerson(200);
 
                 string s = person
-                .FluentName<ManName>(Gender.Man)
+                .FluentName<WomanName>(Gender.Woman)
                 .FluentSurname()
                 .FluentEMail()
                 .FluentAddress()
                 .FluentIdentityNumber()
+                .FluentBirthPlace()
                 .FluentTelephoneNumber()
                 .FluentDepartment()
                 .FluentUniversity()

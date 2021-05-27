@@ -6084,25 +6084,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ALEYNA\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\burak\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Bitirme-Projesi\\FakeDataApplication\\FakeDataApplication\\FakeDataApplication.csproj",
+      "projectUniqueName": "C:\\Users\\burak\\Desktop\\Bitirme\\FakeDataApplication\\FakeDataApplication\\FakeDataApplication.csproj",
       "projectName": "FakeDataApplication",
-      "projectPath": "E:\\Bitirme-Projesi\\FakeDataApplication\\FakeDataApplication\\FakeDataApplication.csproj",
-      "packagesPath": "C:\\Users\\ALEYNA\\.nuget\\packages\\",
-      "outputPath": "E:\\Bitirme-Projesi\\FakeDataApplication\\FakeDataApplication\\obj\\",
+      "projectPath": "C:\\Users\\burak\\Desktop\\Bitirme\\FakeDataApplication\\FakeDataApplication\\FakeDataApplication.csproj",
+      "packagesPath": "C:\\Users\\burak\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\burak\\Desktop\\Bitirme\\FakeDataApplication\\FakeDataApplication\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ALEYNA\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\burak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -6113,12 +6113,13 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "E:\\Bitirme-Projesi\\FakeDataApplication\\FakeDataApplication.Business\\FakeDataApplication.Business.csproj": {
-              "projectPath": "E:\\Bitirme-Projesi\\FakeDataApplication\\FakeDataApplication.Business\\FakeDataApplication.Business.csproj"
+            "C:\\Users\\burak\\Desktop\\Bitirme\\FakeDataApplication\\FakeDataApplication.Business\\FakeDataApplication.Business.csproj": {
+              "projectPath": "C:\\Users\\burak\\Desktop\\Bitirme\\FakeDataApplication\\FakeDataApplication.Business\\FakeDataApplication.Business.csproj"
             },
-            "E:\\Bitirme-Projesi\\FakeDataApplication\\FakeDataApplication.Entity\\FakeDataApplication.Entity.csproj": {
-              "projectPath": "E:\\Bitirme-Projesi\\FakeDataApplication\\FakeDataApplication.Entity\\FakeDataApplication.Entity.csproj"
+            "C:\\Users\\burak\\Desktop\\Bitirme\\FakeDataApplication\\FakeDataApplication.Entity\\FakeDataApplication.Entity.csproj": {
+              "projectPath": "C:\\Users\\burak\\Desktop\\Bitirme\\FakeDataApplication\\FakeDataApplication.Entity\\FakeDataApplication.Entity.csproj"
             }
           }
         }
@@ -6131,6 +6132,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
@@ -6158,7 +6160,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
