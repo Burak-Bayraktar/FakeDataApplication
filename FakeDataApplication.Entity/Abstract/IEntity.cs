@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FakeDataApplication.Entity
+namespace FakeDataApplication.Entity.Abstract
 {
     public interface IEntity
     {

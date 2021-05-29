@@ -11,24 +11,26 @@ namespace FakeDataApplication
     {
         static void Main(string[] args)
         {
-            FluentPerson person = new FluentPerson(200);
+            FluentPerson person = new FluentPerson(1000);
+            string s = person
+                        .FluentIdentityNumber()
+                        .FluentName()
+                        .FluentSurname()
+                        .FluentTelephoneNumber()
+                        .FluentEMail()
+                        .FluentBirthPlace()
+                        .FluentAddress()
+                        .FluentDepartment()
+                        .FluentHighSchool()
+                        .FluentUniversity()
+                        .FluentSalary()
+                        //.FluentHobbies(1,4,2,3,5)
+                        .FluentDrivingLicense()
+                        .CreateAsJSON();
 
-                string s = person
-                .FluentName<WomanName>(Gender.Woman)
-                .FluentSurname()
-                .FluentEMail()
-                .FluentAddress()
-                .FluentIdentityNumber()
-                .FluentBirthPlace()
-                .FluentTelephoneNumber()
-                .FluentDepartment()
-                .FluentUniversity()
-                .CreateAsJSON();
-
-            //string fileName = @"D:\Bitirme-Çalışması\UYGULAMA ÖRNEK JSON DOSYALARI\ornek2.json";
-            //File.WriteAllText(fileName, s);
-
-
+            var date = DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
+            string fileName = $@"D:\Bitirme-Çalışması\UYGULAMA ÖRNEK JSON DOSYALARI\ornek{date}.json";
+            File.WriteAllText(fileName, s);
 
             Console.WriteLine(s);
         }

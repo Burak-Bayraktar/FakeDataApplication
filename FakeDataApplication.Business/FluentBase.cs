@@ -5,29 +5,49 @@ using System.Text;
 using Dapper;
 using System.Linq;
 using FakeDataApplication.Entity;
+using System.Threading.Tasks;
+using FakeDataApplication.Entity.Abstract;
 
 namespace FakeDataApplication.Business
 {
     public class FluentBase
     {
         static string conStr = "Server=tcp:fakedataapp.database.windows.net,1433;Initial Catalog=FakeData;Persist Security Info=False;User ID=aleynardvnlr;Password=3798bba-;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        
+        /// <summary>
+        /// Creates list of data of requested data table.
+        /// </summary>
+        /// <typeparam name="T">Requested data table.</typeparam>
+        /// <returns></returns>
+        public static T[] GetDataList<T>(int requestedData)
+        {
+            var command = $"select top {requestedData} * from {typeof(T).Name} order by newid()";
+            using (SqlConnection connection = new SqlConnection(conStr))
+            {
+                connection.Open();
+                T[] result = connection.QueryAsync<T>(command).Result.ToArray();
+                connection.Close();
+                return result;
+            }
+        }
 
+        /// <summary>
+        /// Returns just one data.
+        /// </summary>
+        /// <typeparam name="T">Requested table.</typeparam>
+        /// <param name="id">Requested random "id" of data</param>
+        /// <returns></returns>
         public static T GetData<T>(int id)
         {
             var command = $"select * from {typeof(T).Name} where id = {id}";
             using (SqlConnection connection = new SqlConnection(conStr))
             {
                 connection.Open();
-                T result = connection.Query<T>(command).SingleOrDefault();
+                T result = connection.QueryFirstAsync<T>(command).Result;
                 connection.Close();
                 return result;
             }
         }
-
-        //internal List<T> GetDataList<T>(T tableName)
-        //{
-
-        //}
 
         internal int GetDataLength(string tableName)
         {
@@ -41,6 +61,16 @@ namespace FakeDataApplication.Business
             }
 
             return total;
+        }
+        internal T[] InitializeArray<T>(int length) where T : new()
+        {
+            T[] array = new T[length];
+            for (int i = 0; i < length; ++i)
+            {
+                array[i] = new T();
+            }
+
+            return array;
         }
 
         internal string RemoveFromWhiteSpaces(string name)
@@ -91,13 +121,33 @@ namespace FakeDataApplication.Business
             text = text.Replace("ç", "c");
             return text;
         }
+        internal IName[] MergeAndShuffleNames(IName[][] names)
+        {
+            Random randomNumber = new Random();
+            List<IName> newList = new List<IName>();
+            for (int i = 0; i < names.Length; i++)
+            {
+                for (int j = 0; j < names[i].Length; j++)
+                {
+                    newList.Add(names[i][j]);
+                }
+            }
 
+            var length = newList.Count;
+            List<IName> shuffledList = new List<IName>();
+            for (int i = 0; i < length; i++)
+            {
+                var d = randomNumber.Next(0, newList.Count);
+                shuffledList.Add(newList[d]);
+                newList.Remove(newList[d]);
+            }
+            return shuffledList.ToArray();
+        }
         internal string CreateFullAdress(Neighborhood neighborhood, Street street, District district, Province province)
         {
             Random randomNumber = new Random();
             string fullAddress = $"{neighborhood.neighborhood} Mah. {street.street} No:{randomNumber.Next(1, 100)} Dr:{randomNumber.Next(1, 20)} {district.district} / {province.province} ";
             return fullAddress;
         }
-
     }
 }

@@ -1,11 +1,10 @@
-﻿using FakeDataApplication.Entity.Abstract;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FakeDataApplication.Entity
+namespace FakeDataApplication.Entity.Abstract
 {
-    public class ManName : IEntity, IName
+    public interface IName
     {
         public int id { get; set; }
         public string name { get; set; }
