@@ -16,7 +16,7 @@ using System.Xml.Serialization;
 
 namespace FakeDataApplication.Entity
 {
-    public class FluentPerson : FluentBase, IFluentBase
+    public class FakePerson : FluentBase, IFluentBase
     {
         Random randomNumber = new Random();
         int id = 0;
@@ -25,13 +25,13 @@ namespace FakeDataApplication.Entity
         int _requestedData = 1; // default requested value.
         string removedWhiteSpaces, capitalizedFirstLetter;
 
-        public FluentPerson()
+        public FakePerson()
         {
             id = randomNumber.Next(0, 100);
             person = new Person();
         }
 
-        public FluentPerson(int requestedData)
+        public FakePerson(int requestedData)
         {
             _requestedData = requestedData;
             if (_requestedData == 0 || _requestedData > 1000)
@@ -43,8 +43,9 @@ namespace FakeDataApplication.Entity
             id = randomNumber.Next(0, 100);
             persons = InitializeArray<Person>(requestedData);
         }
-        public FluentPerson FluentName<T>(Gender gender) where T : IName
+        public FakePerson FakeName<T>(Gender gender) where T : IName
         {
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
             if (_requestedData > 1)
             {
                 var methodInfo = typeof(FluentBase).GetMethod(nameof(FluentBase.GetDataList));
@@ -78,8 +79,9 @@ namespace FakeDataApplication.Entity
             }
             return this;
         }
-        public FluentPerson FluentName()
+        public FakePerson FakeName()
         {
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
             if (_requestedData > 1)
             {
                 var woman = randomNumber.Next(1, _requestedData);
@@ -112,8 +114,9 @@ namespace FakeDataApplication.Entity
 
             return this;
         }
-        public FluentPerson FluentSurname()
+        public FakePerson FakeSurname()
         {
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
             string removedWhiteSpaces, capitalizedFirstLetter;
             if (_requestedData > 1)
             {
@@ -135,8 +138,9 @@ namespace FakeDataApplication.Entity
             person.Surname = capitalizedFirstLetter;
             return this;
         }
-        public FluentPerson FluentTelephoneNumber()
+        public FakePerson FakeTelephoneNumber()
         {
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
             if (_requestedData > 1)
             {
                 TelephoneNumber[] resultArr = GetDataList<TelephoneNumber>(_requestedData);
@@ -152,8 +156,9 @@ namespace FakeDataApplication.Entity
             person.TelephoneNumber = result.telephone_number;
             return this;
         }
-        public FluentPerson FluentIdentityNumber()
+        public FakePerson FakeIdentityNumber()
         {
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
             if (_requestedData > 1)
             {
                 IdentityNumber[] resultArr = GetDataList<IdentityNumber>(_requestedData);
@@ -174,8 +179,9 @@ namespace FakeDataApplication.Entity
             person.Id = capitalizedFirstLetter;
             return this;
         }
-        public FluentPerson FluentBirthPlace()
+        public FakePerson FakeBirthPlace()
         {
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
             if (_requestedData > 1)
             {
                 Province[] resultArr = GetDataList<Province>(_requestedData);
@@ -196,8 +202,9 @@ namespace FakeDataApplication.Entity
             person.BirthPlace = capitalizedFirstLetter;
             return this;
         }
-        public FluentPerson FluentEMail()
+        public FakePerson FakeEMail()
         {
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
             string[] emailDomains = new string[] { "@gmail.com", "@hotmail.com", "@yahoo.com", "@yandex.com", "@icloud.com", "@outlook.com" };
             int randomNum = 0;
             string fakeEmail = string.Empty;
@@ -224,8 +231,9 @@ namespace FakeDataApplication.Entity
 
             return this;
         }
-        public FluentPerson FluentAddress()
+        public FakePerson FakeAddress()
         {
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
             Type[] tableNames = new Type[] { typeof(Neighborhood), typeof(Street), typeof(District), typeof(Province) };
             List<IEntity> addressTypes = new List<IEntity>();
             string fakeAddress;
@@ -279,8 +287,9 @@ namespace FakeDataApplication.Entity
 
             return this;
         }
-        public FluentPerson FluentDepartment()
+        public FakePerson FakeDepartment()
         {
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
             if (_requestedData > 1)
             {
                 Department[] resultArr = GetDataList<Department>(_requestedData);
@@ -297,8 +306,9 @@ namespace FakeDataApplication.Entity
             person.Department = result.department;
             return this;
         }
-        public FluentPerson FluentHighSchool()
+        public FakePerson FakeHighSchool()
         {
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
             string fixedResult = string.Empty;
             if (_requestedData > 1)
             {
@@ -317,8 +327,9 @@ namespace FakeDataApplication.Entity
             person.HighSchool = fixedResult;
             return this;
         }
-        public FluentPerson FluentUniversity()
+        public FakePerson FakeUniversity()
         {
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
             if (_requestedData > 1)
             {
                 University[] resultArr = GetDataList<University>(_requestedData);
@@ -335,8 +346,9 @@ namespace FakeDataApplication.Entity
             person.University = result.university;
             return this;
         }
-        public FluentPerson FluentSalary()
+        public FakePerson FakeSalary()
         {
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
             int num;
             if(_requestedData > 1)
             {
@@ -373,8 +385,9 @@ namespace FakeDataApplication.Entity
         /// If it is empty, 3 hobbies will created for each Person.
         /// </param>
         /// <returns></returns>
-        public FluentPerson FluentHobbies(params int[] requestedHobbyNums)
+        public FakePerson FakeHobbies(params int[] requestedHobbyNums)
         {
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
             for (int i = 0; i < _requestedData; i++)
             {
                 int s, requested;
@@ -395,17 +408,22 @@ namespace FakeDataApplication.Entity
                         if (_requestedData == 1)
                             person.Hobbies = hobbyList.ToArray();
                         else
+                        {
                             persons[i].Hobbies = hobbyList.ToArray();
+                        }
+
                     }
                 }
             }  
             return this;
         }
-        public FluentPerson FluentDrivingLicense()
+        public FakePerson FakeDrivingLicense()
         {
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
             int totalData = GetDataLength("DrivingLicence");
             if (_requestedData > 1)
             {
+                
                 DrivingLicence[] resultArr = GetDataList<DrivingLicence>(_requestedData);
                 for (int i = 0; i < _requestedData; i++)
                 {
@@ -421,6 +439,32 @@ namespace FakeDataApplication.Entity
             return this;
         }
 
+        public FakePerson FakePersonalCar()
+        {
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
+            int totalData = GetDataLength("Car");
+            if (_requestedData > 1)
+            {
+                Car[] resultArr = GetDataList<Car>(_requestedData);
+                for (int i = 0; i < _requestedData; i++)
+                {
+                    id = randomNumber.Next(0, resultArr.Length);
+                    persons[i].PersonalCar = resultArr[id].brand_model;
+                }
+                return this;
+            }
+
+            id = randomNumber.Next(1, totalData);
+            var result = GetData<Car>(id);
+            person.PersonalCar = result.brand_model;
+            return this;
+        }
+
+        /// <summary>
+        /// Creates a JSON file and saves the file to the specified folder
+        /// </summary>
+        /// <param name="fileFolder">folder format: D:\FolderFoo\FolderBar</param>
+        /// <returns></returns>
         public string CreateAsJSON(string fileFolder)
         {
             var options = new JsonSerializerOptions
@@ -433,15 +477,19 @@ namespace FakeDataApplication.Entity
             var fileName = $"{fileFolder}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.json";
             var s = "";
             if (_requestedData > 1)
-                s =JsonSerializer.Serialize(persons, options);
+                s = JsonSerializer.Serialize(persons, options);
             else
-                s =JsonSerializer.Serialize(person, options);
+                s = JsonSerializer.Serialize(person, options);
 
+                Console.WriteLine($"***************************\nJSON file includes {_requestedData} {this.GetType().Name} created at {fileFolder}\n***************************");
 
             File.WriteAllText(fileName, s);
             return s;
         }
-
+        /// <summary>
+        /// Creates an XML file and saves the file to the specified folder
+        /// </summary>
+        /// <param name="fileFolder">folder format: D:\FolderFoo\FolderBar</param>
         public void CreateAsXML(string fileFolder)
         {
             var fileName = $"{fileFolder}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.xml";
@@ -458,6 +506,8 @@ namespace FakeDataApplication.Entity
                     XmlSerializer XML = new XmlSerializer(typeof(Person));
                     XML.Serialize(stream, person);
                 } 
+                Console.WriteLine($"***************************\nXML file includes {_requestedData} {this.GetType().Name} created at {fileFolder}\n***************************");
+
             }
         }
     }

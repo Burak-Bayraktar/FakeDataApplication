@@ -143,6 +143,12 @@ namespace FakeDataApplication.Business
             }
             return shuffledList.ToArray();
         }
+
+        internal void MessageToTheUser(string funcName)
+        {
+            Console.WriteLine($"Creating {funcName}...");
+        }
+
         internal string CreateFullAdress(Neighborhood neighborhood, Street street, District district, Province province)
         {
             Random randomNumber = new Random();

@@ -15,7 +15,6 @@ namespace FakeDataApplication.Business
         TechnologicalDevice techDevice;
         TechnologicalDevice[] techDevices;
         int _requestedData = 1; // default requested value.
-        string removedWhiteSpaces, capitalizedFirstLetter;
 
         public FluentTechnologicalDevice()
         {
@@ -135,13 +134,13 @@ namespace FakeDataApplication.Business
             {
                 if (_requestedData > 1)
                 {
-                    XmlSerializer XML = new XmlSerializer(typeof(Person[]));
+                    XmlSerializer XML = new XmlSerializer(typeof(TechnologicalDevice[]));
                     XML.Serialize(stream, techDevices);
 
                 }
                 else
                 {
-                    XmlSerializer XML = new XmlSerializer(typeof(Person));
+                    XmlSerializer XML = new XmlSerializer(typeof(TechnologicalDevice));
                     XML.Serialize(stream, techDevice);
                 }
             }
