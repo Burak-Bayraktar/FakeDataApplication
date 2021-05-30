@@ -10,6 +10,9 @@ using System.Globalization;
 using System.Text.Json;
 using FakeDataApplication.Entity.Abstract;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace FakeDataApplication.Entity
 {
@@ -30,14 +33,15 @@ namespace FakeDataApplication.Entity
 
         public FluentPerson(int requestedData)
         {
-            if(requestedData > 1000)
+            _requestedData = requestedData;
+            if (_requestedData == 0 || _requestedData > 1000)
             {
-                Console.WriteLine("Sahte veri üretme miktarı 1000 ile sınırlıdır.");
-                return;
+                Console.WriteLine("İzin verilmeyen sahte veri oluşum isteği. \nTalep edilen veri miktarı 0'a eşit veya 1000'den büyük olamaz.");
+                System.Environment.Exit(0);
             }
+
             id = randomNumber.Next(0, 100);
             persons = InitializeArray<Person>(requestedData);
-            _requestedData = requestedData;
         }
         public FluentPerson FluentName<T>(Gender gender) where T : IName
         {
@@ -76,7 +80,7 @@ namespace FakeDataApplication.Entity
         }
         public FluentPerson FluentName()
         {
-            if(_requestedData > 1)
+            if (_requestedData > 1)
             {
                 var woman = randomNumber.Next(1, _requestedData);
                 var man = _requestedData - woman;
@@ -94,9 +98,11 @@ namespace FakeDataApplication.Entity
                 }
                 return this;
             }
+
             var creatingNamesGender = randomNumber.Next(0, 2) == 0 ? typeof(ManName) : typeof(WomanName);
             int totalData = GetDataLength(creatingNamesGender.Name);
             id = randomNumber.Next(1, totalData);
+
             var methodInfo = typeof(FluentBase).GetMethod(nameof(FluentBase.GetData));
             var genericMethodInfo = methodInfo.MakeGenericMethod(creatingNamesGender);
             var result = (IName)genericMethodInfo.Invoke(null, new object[] { id });   
@@ -415,16 +421,44 @@ namespace FakeDataApplication.Entity
             return this;
         }
 
-        public string CreateAsJSON()
+        public string CreateAsJSON(string fileFolder)
         {
             var options = new JsonSerializerOptions
             {
                 IgnoreNullValues = true,
                 WriteIndented = true
             };
+
+
+            var fileName = $"{fileFolder}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.json";
+            var s = "";
             if (_requestedData > 1)
-                return JsonSerializer.Serialize(persons, options);
-            return JsonSerializer.Serialize(person, options);
+                s =JsonSerializer.Serialize(persons, options);
+            else
+                s =JsonSerializer.Serialize(person, options);
+
+
+            File.WriteAllText(fileName, s);
+            return s;
+        }
+
+        public void CreateAsXML(string fileFolder)
+        {
+            var fileName = $"{fileFolder}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.xml";
+            using (var stream = new FileStream(fileName, FileMode.Create))
+            {
+                if (_requestedData > 1)
+                {
+                    XmlSerializer XML = new XmlSerializer(typeof(Person[]));
+                    XML.Serialize(stream, persons);
+
+                }
+                else 
+                {
+                    XmlSerializer XML = new XmlSerializer(typeof(Person));
+                    XML.Serialize(stream, person);
+                } 
+            }
         }
     }
 }

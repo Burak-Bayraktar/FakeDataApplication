@@ -11,50 +11,27 @@ namespace FakeDataApplication
     {
         static void Main(string[] args)
         {
-            FluentPerson person = new FluentPerson(1000);
-            string s = person
-                        .FluentIdentityNumber()
-                        .FluentName()
-                        .FluentSurname()
-                        .FluentTelephoneNumber()
-                        .FluentEMail()
-                        .FluentBirthPlace()
-                        .FluentAddress()
-                        .FluentDepartment()
-                        .FluentHighSchool()
-                        .FluentUniversity()
-                        .FluentSalary()
-                        //.FluentHobbies(1,4,2,3,5)
-                        .FluentDrivingLicense()
-                        .CreateAsJSON();
+            string fileFolder = $@"D:\Bitirme-Çalışması\UYGULAMA ÖRNEK JSON DOSYALARI";
+            //FluentPerson person = new FluentPerson(3330);
+            //person
+            //.FluentIdentityNumber()
+            //.FluentName()
+            //.FluentSurname()
+            //.FluentEMail()
+            //.FluentAddress()
+            //.FluentUniversity()
+            //.FluentHighSchool()
+            //.FluentDepartment()
+            //.FluentDrivingLicense()
+            //.CreateAsXML(fileFolder);
 
-            var date = DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
-            string fileName = $@"D:\Bitirme-Çalışması\UYGULAMA ÖRNEK JSON DOSYALARI\ornek{date}.json";
-            File.WriteAllText(fileName, s);
-
-            Console.WriteLine(s);
+            FluentTechnologicalDevice techDevice = new FluentTechnologicalDevice(1000);
+            techDevice
+                .FluentLaptop()
+                .FluentTablet()
+                .FluentTelevision()
+                .FluentTelephone()
+                .CreateAsXML(fileFolder);
         }
     }
 }
-
-/*
-        *** CREATE JSON FILE SAMPLE
-
-         static async Task Main(string[] args)
-        {
-            FluentPerson person = new FluentPerson(200);
-
-            Person s = (Person)person
-                        .FluentName<ManName>(Gender.Man)
-                        .FluentSurname()
-                        .FluentDepartment()
-                        .FluentUniversity()
-                        .CreateAsJSON();
-            Person[] p = new Person[] { s, s };
-
-            using FileStream fileStream = File.Create(@"D:\Bitirme-Çalışması\UYGULAMA ÖRNEK JSON DOSYALARI\ornek.json");
-
-            await JsonSerializer.SerializeAsync(fileStream, p);
-
-        }
- */

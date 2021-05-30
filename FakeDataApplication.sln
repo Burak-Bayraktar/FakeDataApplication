@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FakeDataApplication", "Fake
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FakeDataApplication.Entity", "FakeDataApplication.Entity\FakeDataApplication.Entity.csproj", "{94C44A46-ADFC-4F88-93F2-6F901AC8E204}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeDataApplication.Business", "FakeDataApplication.Business\FakeDataApplication.Business.csproj", "{927A4DE5-9FEC-4748-8FEF-D15F1B0F7743}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FakeDataApplication.Business", "FakeDataApplication.Business\FakeDataApplication.Business.csproj", "{927A4DE5-9FEC-4748-8FEF-D15F1B0F7743}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{57DFC418-6BF3-4865-9C79-16CC3CD34089}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
