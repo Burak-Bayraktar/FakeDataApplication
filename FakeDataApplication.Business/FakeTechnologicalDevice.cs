@@ -2,13 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Xml.Serialization;
 
 namespace FakeDataApplication.Business
 {
-    public class FluentTechnologicalDevice : FluentBase, IFluentBase
+    public class FakeTechnologicalDevice : FakeTechnologicalDeviceBase, IFluentBase
     {
         Random randomNumber = new Random();
         int id = 0;
@@ -16,26 +17,23 @@ namespace FakeDataApplication.Business
         TechnologicalDevice[] techDevices;
         int _requestedData = 1; // default requested value.
 
-        public FluentTechnologicalDevice()
+        public FakeTechnologicalDevice()
         {
             id = randomNumber.Next(0, 100);
             techDevice = new TechnologicalDevice();
         }
 
-        public FluentTechnologicalDevice(int requestedData)
+        public FakeTechnologicalDevice(int requestedData)
         {
             _requestedData = requestedData;
-            if (_requestedData == 0 || _requestedData > 1000)
-            {
-                Console.WriteLine("İzin verilmeyen sahte veri oluşum isteği. \nTalep edilen veri miktarı 0'a eşit veya 1000'den büyük olamaz.");
-                System.Environment.Exit(0);
-            }
+            CheckRequestedData(_requestedData);
             id = randomNumber.Next(0, 100);
             techDevices = InitializeArray<TechnologicalDevice>(requestedData);
         }
 
-        public FluentTechnologicalDevice FluentLaptop()
+        public FakeTechnologicalDevice FluentLaptop()
         {
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
             if (_requestedData > 1)
             {
                 var resultArr = GetDataList<Laptop>(_requestedData);
@@ -53,9 +51,10 @@ namespace FakeDataApplication.Business
             techDevice.Laptop = result.laptop;
             return this;
         }
-        public FluentTechnologicalDevice FluentTelevision()
+        public FakeTechnologicalDevice FluentTelevision()
         {
-            if(_requestedData > 1)
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
+            if (_requestedData > 1)
             {
                 var resultArr = GetDataList<Television>(_requestedData);
                 for (int i = 0; i < resultArr.Length; i++)
@@ -71,8 +70,9 @@ namespace FakeDataApplication.Business
             techDevice.Television = result.television;
             return this;
         }
-        public FluentTechnologicalDevice FluentTablet()
+        public FakeTechnologicalDevice FluentTablet()
         {
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
             if (_requestedData > 1)
             {
                 var resultArr = GetDataList<Tablet>(_requestedData);
@@ -88,8 +88,9 @@ namespace FakeDataApplication.Business
             techDevice.Tablet = result.tablet;
             return this;
         }
-        public FluentTechnologicalDevice FluentTelephone()
+        public FakeTechnologicalDevice FluentTelephone()
         {
+            MessageToTheUser(MethodBase.GetCurrentMethod().Name);
             if (_requestedData > 1)
             {
                 var resultArr = GetDataList<TelephoneBrand>(_requestedData);
@@ -121,6 +122,7 @@ namespace FakeDataApplication.Business
             else
                 s = JsonSerializer.Serialize(techDevice, options);
 
+            Console.WriteLine($"***************************\nJSON file includes {_requestedData} {this.GetType().Name} created at {folderName}\n***************************");
 
             File.WriteAllText(fileName, s);
             return s;
@@ -143,6 +145,8 @@ namespace FakeDataApplication.Business
                     XmlSerializer XML = new XmlSerializer(typeof(TechnologicalDevice));
                     XML.Serialize(stream, techDevice);
                 }
+                Console.WriteLine($"***************************\nXML file includes {_requestedData} {this.GetType().Name} created at {folderName}\n***************************");
+
             }
         }
     }

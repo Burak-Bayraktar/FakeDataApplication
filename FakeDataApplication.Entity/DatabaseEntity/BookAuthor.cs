@@ -8,7 +8,7 @@ namespace FakeDataApplication.Entity
     public class BookAuthor : IEntity
     {
         public int id { get; set; }
-        public string book_name { get; set; }
-        public string author { get; set; }
+        public string book { get; set; }
+        public string book_author { get; set; }
     }
 }

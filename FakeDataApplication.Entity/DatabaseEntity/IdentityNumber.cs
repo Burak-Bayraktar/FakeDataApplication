@@ -11,3 +11,4 @@ namespace FakeDataApplication.Entity
         public string tc { get; set; }
     }
 }
+

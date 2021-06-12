@@ -1,6 +1,8 @@
-﻿namespace FakeDataApplication.Entity
+﻿using FakeDataApplication.Entity.Abstract;
+
+namespace FakeDataApplication.Entity
 {
-    public class TechnologicalDevice
+    public class TechnologicalDevice : IEntity
     {
         public string Laptop { get; set; }
         public string Tablet { get; set; }

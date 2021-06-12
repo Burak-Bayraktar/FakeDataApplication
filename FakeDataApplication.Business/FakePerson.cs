@@ -16,7 +16,7 @@ using System.Xml.Serialization;
 
 namespace FakeDataApplication.Entity
 {
-    public class FakePerson : FluentBase, IFluentBase
+    public class FakePerson : FakePersonBase, IFluentBase
     {
         Random randomNumber = new Random();
         int id = 0;
@@ -34,12 +34,7 @@ namespace FakeDataApplication.Entity
         public FakePerson(int requestedData)
         {
             _requestedData = requestedData;
-            if (_requestedData == 0 || _requestedData > 1000)
-            {
-                Console.WriteLine("İzin verilmeyen sahte veri oluşum isteği. \nTalep edilen veri miktarı 0'a eşit veya 1000'den büyük olamaz.");
-                System.Environment.Exit(0);
-            }
-
+            CheckRequestedData(_requestedData);
             id = randomNumber.Next(0, 100);
             persons = InitializeArray<Person>(requestedData);
         }
@@ -79,6 +74,10 @@ namespace FakeDataApplication.Entity
             }
             return this;
         }
+        /// <summary>
+        /// Rastgele karışık isim döndürür.
+        /// </summary>
+        /// <returns></returns>
         public FakePerson FakeName()
         {
             MessageToTheUser(MethodBase.GetCurrentMethod().Name);
@@ -156,6 +155,7 @@ namespace FakeDataApplication.Entity
             person.TelephoneNumber = result.telephone_number;
             return this;
         }
+
         public FakePerson FakeIdentityNumber()
         {
             MessageToTheUser(MethodBase.GetCurrentMethod().Name);
@@ -179,6 +179,7 @@ namespace FakeDataApplication.Entity
             person.Id = capitalizedFirstLetter;
             return this;
         }
+
         public FakePerson FakeBirthPlace()
         {
             MessageToTheUser(MethodBase.GetCurrentMethod().Name);
@@ -256,7 +257,7 @@ namespace FakeDataApplication.Entity
                 for (int i = 0; i < _requestedData; i++)
                 {
                     var t = addressTypesArr;
-                    fakeAddress = CreateFullAdress(
+                    fakeAddress = CreateFullAddress(
                                         (Neighborhood)addressTypesArr[0][randomNumber.Next(1, neighborhoodLength)],
                                         (Street)addressTypesArr[1][randomNumber.Next(1, streetLength)],
                                         (District)addressTypesArr[2][randomNumber.Next(1, districtLength)],
@@ -278,7 +279,7 @@ namespace FakeDataApplication.Entity
                 addressTypes.Add(result);
             }
 
-            fakeAddress = CreateFullAdress((Neighborhood)addressTypes[0],
+            fakeAddress = CreateFullAddress((Neighborhood)addressTypes[0],
                              (Street)addressTypes[1],
                              (District)addressTypes[2],
                              (Province)addressTypes[3]);
@@ -406,10 +407,14 @@ namespace FakeDataApplication.Entity
                     if (j == requested - 1)
                     {
                         if (_requestedData == 1)
+                        {
                             person.Hobbies = hobbyList.ToArray();
+                        }
                         else
                         {
                             persons[i].Hobbies = hobbyList.ToArray();
+                            Console.WriteLine($"Hobby for {i+1}.{this.GetType().Name} created.");
+                            ClearLine();
                         }
 
                     }

@@ -7,13 +7,11 @@ namespace FakeDataApplication.Entity
 {
     public class Person : IEntity
     {
-        public string Id { get; set; } // TC
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string EMail { get; set; }
         public long? TelephoneNumber { get; set; }
-        public string Province { get; set; }
-        public string Neighborhood { get; set; }
         public string Address { get; set; }
         public string HighSchool { get; set; }
         public string University { get; set; }
