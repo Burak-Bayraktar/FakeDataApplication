@@ -8,7 +8,7 @@ namespace FakeDataApplication.Business
 {
     public interface IFluentBase
     {
-        string CreateAsJSON(string fileFolder);
-        void CreateAsXML(string fileFolder);
+        string CreateAsJSON(string folderName);
+        void CreateAsXML(string folderName);
     }
 }

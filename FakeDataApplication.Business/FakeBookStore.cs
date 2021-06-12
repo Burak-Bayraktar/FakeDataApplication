@@ -6,6 +6,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Text.Json;
+using System.Xml.Serialization;
 
 namespace FakeDataApplication.Business
 {
@@ -63,7 +64,7 @@ namespace FakeDataApplication.Business
             return this;
         }
 
-        public string CreateAsJSON(string fileFolder)
+        public string CreateAsJSON(string folderName)
         {
             var options = new JsonSerializerOptions
             {
@@ -72,23 +73,55 @@ namespace FakeDataApplication.Business
             };
 
 
-            var fileName = $"{fileFolder}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.json";
+            var fileName = $"{folderName}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.json";
             var s = "";
-            if (_requestedData > 1)
-                s = JsonSerializer.Serialize(books, options);
-            else
-                s = JsonSerializer.Serialize(book, options);
+            try
+            {
+                if (_requestedData > 1)
+                    s = JsonSerializer.Serialize(books, options);
+                else
+                    s = JsonSerializer.Serialize(book, options);
 
-            Console.WriteLine($"***************************\nJSON file includes {_requestedData} {this.GetType().Name} created at {fileFolder}\n***************************");
-
-            File.WriteAllText(fileName, s);
+                File.WriteAllText(fileName, s);
+                Console.WriteLine($"***************************\nJSON file includes {_requestedData} {this.GetType().Name} created at {folderName}\n****************************\n");
+            }
+            catch (DirectoryNotFoundException)
+            {
+                Console.WriteLine("***************************\nError!\nThe specified file folder couldn't found. \nMake sure that you passed valid folderName parameter.\n");
+            }
             return s;
 
         }
 
         public void CreateAsXML(string folderName)
         {
-            throw new NotImplementedException();
+            var fileName = $"{folderName}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.xml";
+
+            try
+            {
+                if (Directory.Exists(folderName))
+                {
+                    using (var stream = new FileStream(fileName, FileMode.Create))
+                    {
+                        if (_requestedData > 1)
+                        {
+                            XmlSerializer XML = new XmlSerializer(typeof(TechnologicalDevice[]));
+                            XML.Serialize(stream, books);
+
+                        }
+                        else
+                        {
+                            XmlSerializer XML = new XmlSerializer(typeof(TechnologicalDevice));
+                            XML.Serialize(stream, book);
+                        }
+                        Console.WriteLine($"***************************\nXML file includes {_requestedData} {this.GetType().Name} created at {folderName}\n****************************\n");
+                    }
+                }
+            }
+            catch (DirectoryNotFoundException)
+            {
+                Console.WriteLine("***************************\nError!\nThe specified file folder couldn't found. \nMake sure that you passed valid folderName parameter.");
+            }
         }
     }
 }

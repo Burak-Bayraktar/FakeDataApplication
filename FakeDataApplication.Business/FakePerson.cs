@@ -427,12 +427,11 @@ namespace FakeDataApplication.Entity
             MessageToTheUser(MethodBase.GetCurrentMethod().Name);
             int totalData = GetDataLength("DrivingLicence");
             if (_requestedData > 1)
-            {
-                
+            {    
                 DrivingLicence[] resultArr = GetDataList<DrivingLicence>(_requestedData);
                 for (int i = 0; i < _requestedData; i++)
                 {
-                    id = randomNumber.Next(1, totalData);
+                    id = randomNumber.Next(1, resultArr.Length);
                     persons[i].DrivingLicense = resultArr[id].class_name;
                 }
                 return this;
@@ -468,9 +467,9 @@ namespace FakeDataApplication.Entity
         /// <summary>
         /// Creates a JSON file and saves the file to the specified folder
         /// </summary>
-        /// <param name="fileFolder">folder format: D:\FolderFoo\FolderBar</param>
+        /// <param name="folderName">folder format: D:\FolderFoo\FolderBar</param>
         /// <returns></returns>
-        public string CreateAsJSON(string fileFolder)
+        public string CreateAsJSON(string folderName)
         {
             var options = new JsonSerializerOptions
             {
@@ -478,42 +477,58 @@ namespace FakeDataApplication.Entity
                 WriteIndented = true
             };
 
-
-            var fileName = $"{fileFolder}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.json";
             var s = "";
-            if (_requestedData > 1)
-                s = JsonSerializer.Serialize(persons, options);
-            else
-                s = JsonSerializer.Serialize(person, options);
+            try
+            {
+                var fileName = $"{folderName}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.json";
+                if (_requestedData > 1)
+                    s = JsonSerializer.Serialize(persons, options);
+                else
+                    s = JsonSerializer.Serialize(person, options);
 
-                Console.WriteLine($"***************************\nJSON file includes {_requestedData} {this.GetType().Name} created at {fileFolder}\n***************************");
+                File.WriteAllText(fileName, s);
+                Console.WriteLine($"***************************\nJSON file includes {_requestedData} {this.GetType().Name} created at {folderName}\n****************************\n");
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine("***************************\nError!\nThe specified file folder couldn't found. \nMake sure that you passed valid folderName parameter.\n");
+            }
 
-            File.WriteAllText(fileName, s);
             return s;
         }
         /// <summary>
         /// Creates an XML file and saves the file to the specified folder
         /// </summary>
-        /// <param name="fileFolder">folder format: D:\FolderFoo\FolderBar</param>
-        public void CreateAsXML(string fileFolder)
+        /// <param name="folderName">folder format: D:\FolderFoo\FolderBar</param>
+        public void CreateAsXML(string folderName)
         {
-            var fileName = $"{fileFolder}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.xml";
-            using (var stream = new FileStream(fileName, FileMode.Create))
+            var fileName = $"{folderName}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.xml";
+            try
             {
-                if (_requestedData > 1)
+                if (Directory.Exists(folderName))
                 {
-                    XmlSerializer XML = new XmlSerializer(typeof(Person[]));
-                    XML.Serialize(stream, persons);
+                    using (var stream = new FileStream(fileName, FileMode.Create))
+                    {
+                        if (_requestedData > 1)
+                        {
+                            XmlSerializer XML = new XmlSerializer(typeof(TechnologicalDevice[]));
+                            XML.Serialize(stream, persons);
 
+                        }
+                        else
+                        {
+                            XmlSerializer XML = new XmlSerializer(typeof(TechnologicalDevice));
+                            XML.Serialize(stream, person);
+                        }
+                        Console.WriteLine($"***************************\nXML file includes {_requestedData} {this.GetType().Name} created at {folderName}\n****************************\n");
+                    }
                 }
-                else 
-                {
-                    XmlSerializer XML = new XmlSerializer(typeof(Person));
-                    XML.Serialize(stream, person);
-                } 
-                Console.WriteLine($"***************************\nXML file includes {_requestedData} {this.GetType().Name} created at {fileFolder}\n***************************");
-
             }
+            catch (DirectoryNotFoundException)
+            {
+                Console.WriteLine("***************************\nError!\nThe specified file folder couldn't found. \nMake sure that you passed valid folderName parameter.\n");
+            }
+
         }
     }
 }

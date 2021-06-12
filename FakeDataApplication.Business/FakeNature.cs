@@ -85,36 +85,53 @@ namespace FakeDataApplication.Business
 
             var fileName = $"{folderName}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.json";
             var s = "";
-            if (_requestedData > 1)
-                s = JsonSerializer.Serialize(natures, options);
-            else
-                s = JsonSerializer.Serialize(nature, options);
+            try
+            {
+                if (_requestedData > 1)
+                    s = JsonSerializer.Serialize(natures, options);
+                else
+                    s = JsonSerializer.Serialize(nature, options);
 
-            Console.WriteLine($"***************************\nJSON file includes {_requestedData} {this.GetType().Name} created at {folderName}\n***************************");
-
-            File.WriteAllText(fileName, s);
+                File.WriteAllText(fileName, s);
+                Console.WriteLine($"***************************\nJSON file includes {_requestedData} {this.GetType().Name} created at {folderName}\n****************************\n");
+            }
+            catch (DirectoryNotFoundException)
+            {
+                Console.WriteLine("***************************\nError!\nThe specified file folder couldn't found. \nMake sure that you passed valid folderName parameter.");
+            }
             return s;
         }
 
         public void CreateAsXML(string folderName)
         {
             var fileName = $"{folderName}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.xml";
-            using (var stream = new FileStream(fileName, FileMode.Create))
+
+            try
             {
-                if (_requestedData > 1)
+                if (Directory.Exists(folderName))
                 {
-                    XmlSerializer XML = new XmlSerializer(typeof(TechnologicalDevice[]));
-                    XML.Serialize(stream, natures);
+                    using (var stream = new FileStream(fileName, FileMode.Create))
+                    {
+                        if (_requestedData > 1)
+                        {
+                            XmlSerializer XML = new XmlSerializer(typeof(TechnologicalDevice[]));
+                            XML.Serialize(stream, natures);
 
+                        }
+                        else
+                        {
+                            XmlSerializer XML = new XmlSerializer(typeof(TechnologicalDevice));
+                            XML.Serialize(stream, nature);
+                        }
+                        Console.WriteLine($"***************************\nXML file includes {_requestedData} {this.GetType().Name} created at {folderName}\n****************************\n");
+                    }
                 }
-                else
-                {
-                    XmlSerializer XML = new XmlSerializer(typeof(TechnologicalDevice));
-                    XML.Serialize(stream, nature);
-                }
-                Console.WriteLine($"***************************\nXML file includes {_requestedData} {this.GetType().Name} created at {folderName}\n***************************");
-
             }
+            catch (DirectoryNotFoundException)
+            {
+                Console.WriteLine("***************************\nError!\nThe specified file folder couldn't found. \nMake sure that you passed valid folderName parameter.\n");
+            }
+
         }
     }
 }

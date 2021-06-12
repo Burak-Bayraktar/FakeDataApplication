@@ -9,7 +9,9 @@ namespace FakeDataApplication
         {
             string fileFolder = $@"D:\Bitirme-Çalışması\UYGULAMA ÖRNEK JSON DOSYALARI";
 
-            FakePerson person = new FakePerson(100);
+
+            //* FAKEPERSON OLUŞTURMA ÖRNEĞİ
+            FakePerson person = new FakePerson(150);
             person
                 .FakeIdentityNumber()
                 .FakeName<ManName>(Gender.Man)
@@ -25,9 +27,11 @@ namespace FakeDataApplication
                 .FakeUniversity()
                 .CreateAsJSON(fileFolder);
 
+            //* FAKEBOOKSTORE OLUŞTURMA ÖRNEĞİ
             FakeBookStore book = new FakeBookStore(1000);
             book.FakeBookAndAuthor().CreateAsJSON(fileFolder);
 
+            //* FAKETECHNOLOGICALDEVICE OLUŞTURMA ÖRNEĞİ
             FakeTechnologicalDevice techDevice = new FakeTechnologicalDevice(1000);
             techDevice
                 .FluentLaptop()
@@ -36,8 +40,10 @@ namespace FakeDataApplication
                 .FluentTelephone()
                 .CreateAsXML(fileFolder);
 
+            //* FAKENATURE OLUŞTURMA ÖRNEĞİ
             FakeNature nature = new FakeNature(1000);
             nature.FluentAnimal().FluentPlant().CreateAsJSON(fileFolder);
+
         }
     }
 }
