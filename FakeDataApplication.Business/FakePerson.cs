@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.IO;
 using System.Xml.Serialization;
+using System.Security.Principal;
 
 namespace FakeDataApplication.Entity
 {
@@ -482,7 +483,6 @@ namespace FakeDataApplication.Entity
                 IgnoreNullValues = true,
                 WriteIndented = true
             };
-            
             var s = "";
             try
             {
