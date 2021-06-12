@@ -118,6 +118,11 @@ namespace FakeDataApplication.Business
             var s = "";
             try
             {
+                if (!Directory.Exists(folderName))
+                {
+                    Directory.CreateDirectory(folderName);
+                }
+
                 var fileName = $"{folderName}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.json";
                 if (_requestedData > 1)
                     s = JsonSerializer.Serialize(techDevices, options);

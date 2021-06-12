@@ -77,6 +77,12 @@ namespace FakeDataApplication.Business
             var s = "";
             try
             {
+                if (!Directory.Exists(folderName))
+                {
+                    Directory.CreateDirectory(folderName);
+                }
+
+
                 if (_requestedData > 1)
                     s = JsonSerializer.Serialize(books, options);
                 else

@@ -38,6 +38,12 @@ namespace FakeDataApplication.Entity
             id = randomNumber.Next(0, 100);
             persons = InitializeArray<Person>(requestedData);
         }
+        /// <summary>
+        /// Create Fake Name for specified gender.
+        /// </summary>
+        /// <typeparam name="T">Requested Gender name.</typeparam>
+        /// <param name="gender"></param>
+        /// <returns></returns>
         public FakePerson FakeName<T>(Gender gender) where T : IName
         {
             MessageToTheUser(MethodBase.GetCurrentMethod().Name);
@@ -476,10 +482,15 @@ namespace FakeDataApplication.Entity
                 IgnoreNullValues = true,
                 WriteIndented = true
             };
-
+            
             var s = "";
             try
             {
+                if (!Directory.Exists(folderName))
+                {
+                    Directory.CreateDirectory(folderName);
+                }
+
                 var fileName = $"{folderName}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.json";
                 if (_requestedData > 1)
                     s = JsonSerializer.Serialize(persons, options);

@@ -44,6 +44,11 @@ namespace FakeDataApplication.Business
             }
         }
 
+        /// <summary>
+        /// Returns total data of specified table.
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <returns></returns>
         internal int GetDataLength(string tableName)
         {
             var command = $"select * from {tableName}";
