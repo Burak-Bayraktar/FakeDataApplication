@@ -7,9 +7,9 @@ namespace FakeDataApplication
     {
         static void Main(string[] args)
         {
-            // Lütfen aşağıdaki boş string alanına geçerli bir dosya konumu giriniz.
+            // Lütfen aşağıdaki string alanına geçerli bir dosya konumu giriniz.
             // ÖRNEK: C:\Users\FAKE DATA APP ÖRNEK DOSYALAR
-            string fileFolder = $@"";
+            string fileFolder = $@"C:\Users\FAKE DATA APP ÖRNEK DOSYALAR";
 
             //* FAKEPERSON OLUŞTURMA ÖRNEĞİ
             FakePerson person = new FakePerson(5);
@@ -25,6 +25,7 @@ namespace FakeDataApplication
                 .FakePersonalCar()
                 .FakeHobbies(3, 2, 4)
                 .FakeHighSchool()
+                .FakeSalary()
                 .FakeUniversity()
                 .CreateAsJSON(fileFolder);
 
