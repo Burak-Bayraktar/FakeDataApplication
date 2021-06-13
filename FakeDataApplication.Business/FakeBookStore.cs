@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Xml.Serialization;
 
@@ -68,6 +69,7 @@ namespace FakeDataApplication.Business
         {
             var options = new JsonSerializerOptions
             {
+                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
                 IgnoreNullValues = true,
                 WriteIndented = true
             };
@@ -94,6 +96,10 @@ namespace FakeDataApplication.Business
             catch (DirectoryNotFoundException)
             {
                 Console.WriteLine("***************************\nError!\nThe specified file folder couldn't found. \nMake sure that you passed valid folderName parameter.\n");
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("***************************\nError!\n\"folderName\" parameter cannot be empty. \nMake sure that you passed valid folderName parameter.\n");
             }
             return s;
 
@@ -127,6 +133,10 @@ namespace FakeDataApplication.Business
             catch (DirectoryNotFoundException)
             {
                 Console.WriteLine("***************************\nError!\nThe specified file folder couldn't found. \nMake sure that you passed valid folderName parameter.");
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("***************************\nError!\n\"folderName\" parameter cannot be empty. \nMake sure that you passed valid folderName parameter.\n");
             }
         }
     }

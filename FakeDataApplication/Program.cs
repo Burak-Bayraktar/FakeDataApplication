@@ -7,10 +7,9 @@ namespace FakeDataApplication
     {
         static void Main(string[] args)
         {
-            // Lütfen aşağıdaki boş string alanına geçerli bir dosya konumu giriniz. 
-            // Aksi takdirde program dosya konumunu bulamadığı için uyarı verip dosya kayıt işlemini gerçekleştirmeyecektir.
-            string fileFolder = $@"C:\Users\FAKE DATA APP ÖRNEK DOSYALAR";
-
+            // Lütfen aşağıdaki boş string alanına geçerli bir dosya konumu giriniz.
+            // ÖRNEK: C:\Users\FAKE DATA APP ÖRNEK DOSYALAR
+            string fileFolder = $@"";
 
             //* FAKEPERSON OLUŞTURMA ÖRNEĞİ
             FakePerson person = new FakePerson(5);

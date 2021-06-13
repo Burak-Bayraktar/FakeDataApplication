@@ -14,6 +14,7 @@ using System.Xml.Linq;
 using System.IO;
 using System.Xml.Serialization;
 using System.Security.Principal;
+using System.Text.Encodings.Web;
 
 namespace FakeDataApplication.Entity
 {
@@ -480,6 +481,7 @@ namespace FakeDataApplication.Entity
         {
             var options = new JsonSerializerOptions
             {
+                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
                 IgnoreNullValues = true,
                 WriteIndented = true
             };
@@ -497,12 +499,19 @@ namespace FakeDataApplication.Entity
                 else
                     s = JsonSerializer.Serialize(person, options);
 
+
                 File.WriteAllText(fileName, s);
+                var k = File.ReadAllText(fileName, Encoding.GetEncoding("windows-1254"));
+
                 Console.WriteLine($"***************************\nJSON file includes {_requestedData} {this.GetType().Name} created at {folderName}\n****************************\n");
             }
             catch (DirectoryNotFoundException ex)
             {
                 Console.WriteLine("***************************\nError!\nThe specified file folder couldn't found. \nMake sure that you passed valid folderName parameter.\n");
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("***************************\nError!\n\"folderName\" parameter cannot be empty. \nMake sure that you passed valid folderName parameter.\n");
             }
 
             return s;
@@ -522,13 +531,13 @@ namespace FakeDataApplication.Entity
                     {
                         if (_requestedData > 1)
                         {
-                            XmlSerializer XML = new XmlSerializer(typeof(TechnologicalDevice[]));
+                            XmlSerializer XML = new XmlSerializer(typeof(Person[]));
                             XML.Serialize(stream, persons);
 
                         }
                         else
                         {
-                            XmlSerializer XML = new XmlSerializer(typeof(TechnologicalDevice));
+                            XmlSerializer XML = new XmlSerializer(typeof(Person));
                             XML.Serialize(stream, person);
                         }
                         Console.WriteLine($"***************************\nXML file includes {_requestedData} {this.GetType().Name} created at {folderName}\n****************************\n");
@@ -538,6 +547,10 @@ namespace FakeDataApplication.Entity
             catch (DirectoryNotFoundException)
             {
                 Console.WriteLine("***************************\nError!\nThe specified file folder couldn't found. \nMake sure that you passed valid folderName parameter.\n");
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("***************************\nError!\n\"folderName\" parameter cannot be empty. \nMake sure that you passed valid folderName parameter.\n");
             }
 
         }

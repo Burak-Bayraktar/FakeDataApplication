@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "FakeDataApplication.Business/1.0.0": {
         "dependencies": {
+          "Dapper": "2.0.90",
           "FakeDataApplication.Entity": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.6",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.6"
