@@ -522,7 +522,7 @@ namespace FakeDataApplication.Entity
         /// <param name="folderName">folder format: D:\FolderFoo\FolderBar</param>
         public void CreateAsXML(string folderName)
         {
-            var fileName = $"{folderName}\\FakeData_{this.GetType().Name}_{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.json";
+            var fileName = $"{folderName}\\FakeData_{this.GetType().Name}_{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.xml";
             try
             {
                 if (Directory.Exists(folderName))
