@@ -493,7 +493,7 @@ namespace FakeDataApplication.Entity
                     Directory.CreateDirectory(folderName);
                 }
 
-                var fileName = $"{folderName}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.json";
+                var fileName = $"{folderName}\\FakeData_{this.GetType().Name}_{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.json";
                 if (_requestedData > 1)
                     s = JsonSerializer.Serialize(persons, options);
                 else
@@ -522,7 +522,7 @@ namespace FakeDataApplication.Entity
         /// <param name="folderName">folder format: D:\FolderFoo\FolderBar</param>
         public void CreateAsXML(string folderName)
         {
-            var fileName = $"{folderName}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.xml";
+            var fileName = $"{folderName}\\FakeData_{this.GetType().Name}_{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.json";
             try
             {
                 if (Directory.Exists(folderName))

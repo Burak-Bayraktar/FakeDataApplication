@@ -75,7 +75,7 @@ namespace FakeDataApplication.Business
             };
 
 
-            var fileName = $"{folderName}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.json";
+            var fileName = $"{folderName}\\FakeData_{this.GetType().Name}_{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.json";
             var s = "";
             try
             {
@@ -107,7 +107,7 @@ namespace FakeDataApplication.Business
 
         public void CreateAsXML(string folderName)
         {
-            var fileName = $"{folderName}\\FakeData{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.xml";
+            var fileName = $"{folderName}\\FakeData_{this.GetType().Name}_{DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString()}.json";
 
             try
             {

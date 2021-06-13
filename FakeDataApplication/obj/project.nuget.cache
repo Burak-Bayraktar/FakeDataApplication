@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "COkzJYMMPHMKeD4uKS3gE912H8RC81GyeX/sgsPGWyTZksXQsLePnG8A8l0Yu0v9phpT6jKY9mDvQ66kMd+YFA==",
+  "dgSpecHash": "iJxhtfvhAIkihE3E6/n1fXwj0kplyH3Z5vOmDELFw7U8hO+zEydYqgUaDRYniI42FgqtJ0ml2n9bguClJ9jwtQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\burak\\Desktop\\Bitirme\\FakeDataApplication\\FakeDataApplication\\FakeDataApplication.csproj",
+  "projectFilePath": "C:\\Users\\burak\\FakeDataApplication\\FakeDataApplication\\FakeDataApplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\burak\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\burak\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

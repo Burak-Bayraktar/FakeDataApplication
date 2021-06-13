@@ -5976,11 +5976,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\burak\\Desktop\\Bitirme\\FakeDataApplication\\FakeDataApplication.Business\\FakeDataApplication.Business.csproj",
+      "projectUniqueName": "C:\\Users\\burak\\FakeDataApplication\\FakeDataApplication.Business\\FakeDataApplication.Business.csproj",
       "projectName": "FakeDataApplication.Business",
-      "projectPath": "C:\\Users\\burak\\Desktop\\Bitirme\\FakeDataApplication\\FakeDataApplication.Business\\FakeDataApplication.Business.csproj",
+      "projectPath": "C:\\Users\\burak\\FakeDataApplication\\FakeDataApplication.Business\\FakeDataApplication.Business.csproj",
       "packagesPath": "C:\\Users\\burak\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\burak\\Desktop\\Bitirme\\FakeDataApplication\\FakeDataApplication.Business\\obj\\",
+      "outputPath": "C:\\Users\\burak\\FakeDataApplication\\FakeDataApplication.Business\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6001,8 +6001,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\burak\\Desktop\\Bitirme\\FakeDataApplication\\FakeDataApplication.Entity\\FakeDataApplication.Entity.csproj": {
-              "projectPath": "C:\\Users\\burak\\Desktop\\Bitirme\\FakeDataApplication\\FakeDataApplication.Entity\\FakeDataApplication.Entity.csproj"
+            "C:\\Users\\burak\\FakeDataApplication\\FakeDataApplication.Entity\\FakeDataApplication.Entity.csproj": {
+              "projectPath": "C:\\Users\\burak\\FakeDataApplication\\FakeDataApplication.Entity\\FakeDataApplication.Entity.csproj"
             }
           }
         }

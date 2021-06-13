@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nm2+Pqc7v5300dDNV0qRRJhsfq8mq0XqyOs9H578Pf15JD8S+rbV/S8tbem09xgwX50WY/iOJt4h6MqBSJ6fWA==",
+  "dgSpecHash": "Gemh34CmGp9oBxNYPDxN+R7nTrst1rGXexf2zheSMX2H3pHDEuxzXHaBxqQD8wl7xCm0h7HLr4OqVjWpbKwXIw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\burak\\Desktop\\Bitirme\\FakeDataApplication\\FakeDataApplication.Entity\\FakeDataApplication.Entity.csproj",
+  "projectFilePath": "C:\\Users\\burak\\FakeDataApplication\\FakeDataApplication.Entity\\FakeDataApplication.Entity.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\burak\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\burak\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",

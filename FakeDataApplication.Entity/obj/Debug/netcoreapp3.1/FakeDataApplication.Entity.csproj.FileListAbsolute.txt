@@ -33,3 +33,12 @@ C:\Users\burak\Desktop\Bitirme\FakeDataApplication\FakeDataApplication.Entity\ob
 C:\Users\burak\Desktop\Bitirme\FakeDataApplication\FakeDataApplication.Entity\obj\Debug\netcoreapp3.1\FakeDataApplication.Entity.csproj.CoreCompileInputs.cache
 C:\Users\burak\Desktop\Bitirme\FakeDataApplication\FakeDataApplication.Entity\obj\Debug\netcoreapp3.1\FakeDataApplication.Entity.dll
 C:\Users\burak\Desktop\Bitirme\FakeDataApplication\FakeDataApplication.Entity\obj\Debug\netcoreapp3.1\FakeDataApplication.Entity.pdb
+C:\Users\burak\FakeDataApplication\FakeDataApplication.Entity\bin\Debug\netcoreapp3.1\FakeDataApplication.Entity.deps.json
+C:\Users\burak\FakeDataApplication\FakeDataApplication.Entity\bin\Debug\netcoreapp3.1\FakeDataApplication.Entity.dll
+C:\Users\burak\FakeDataApplication\FakeDataApplication.Entity\bin\Debug\netcoreapp3.1\FakeDataApplication.Entity.pdb
+C:\Users\burak\FakeDataApplication\FakeDataApplication.Entity\obj\Debug\netcoreapp3.1\FakeDataApplication.Entity.csprojAssemblyReference.cache
+C:\Users\burak\FakeDataApplication\FakeDataApplication.Entity\obj\Debug\netcoreapp3.1\FakeDataApplication.Entity.AssemblyInfoInputs.cache
+C:\Users\burak\FakeDataApplication\FakeDataApplication.Entity\obj\Debug\netcoreapp3.1\FakeDataApplication.Entity.AssemblyInfo.cs
+C:\Users\burak\FakeDataApplication\FakeDataApplication.Entity\obj\Debug\netcoreapp3.1\FakeDataApplication.Entity.csproj.CoreCompileInputs.cache
+C:\Users\burak\FakeDataApplication\FakeDataApplication.Entity\obj\Debug\netcoreapp3.1\FakeDataApplication.Entity.dll
+C:\Users\burak\FakeDataApplication\FakeDataApplication.Entity\obj\Debug\netcoreapp3.1\FakeDataApplication.Entity.pdb
